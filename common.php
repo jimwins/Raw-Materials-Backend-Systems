@@ -11,3 +11,12 @@ function generate_jsonp($data) {
   print sprintf('%s(%s);', $_GET['callback'], json_encode($data));
 }
 
+$config= parse_ini_file(dirname(__FILE__) . "/.db.ini");
+
+$db= mysqli_init();
+if (!$db) die("mysqli_init failed");
+
+if (!$db->real_connect($config['host'],$config['user'],$config['password'],
+                       $config['database']))
+  die('connect failed: ' . mysqli_connect_error());
+$db->set_charset('utf8');

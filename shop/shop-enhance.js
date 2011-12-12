@@ -39,4 +39,8 @@ $(document).ready(function() {
                 })
               });
   }
+
+  // is this the gift certificate page? add note about combined/separate
+  var note= '<p style="font-size: smaller; font-weight: normal">When you place your order, please let us know if you would like us to combine all of the gift certificates in your order into one single certificate for the total amount.</p>';
+  $("td.hiliteText:contains('Gift Certificates')").append(note);
 });
